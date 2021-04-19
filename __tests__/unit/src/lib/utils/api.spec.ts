@@ -1,7 +1,7 @@
 import nock from 'nock'
 import { loadTodos } from '../../../../../src/lib/utils/api'
 import { ResponseHandler } from '../../../../../src/lib/utils/responseHandler'
-import { jsonPlaceholderTodosMock } from '../../../../mocks/apiResponse'
+import { jsonPlaceholderTodosMock } from '../../../../../__mocks__/apiResponse'
 
 describe('API', () => {
   beforeEach(() => {
