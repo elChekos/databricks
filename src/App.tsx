@@ -2,19 +2,19 @@ import { useCallback } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { Button, Grid } from '@material-ui/core'
 import { useStoreActions, useStoreState } from './store'
-import TodosTable from './components/TodosTable'
+import { TodosTable } from './components/TodosTable'
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   button: {
     backgroundColor: '#FD5000',
     textTransform: 'none',
-    '&:hover' : {
+    '&:hover': {
       backgroundColor: '#CA4000',
-    }
+    },
   },
 }))
 
-const App: React.FC = () => {
+export const App: React.FC = () => {
   const classes = useStyles()
 
   const { todos, todosLoaded } = useStoreState((state) => state.todos)
@@ -45,5 +45,3 @@ const App: React.FC = () => {
     </div>
   )
 }
-
-export default App

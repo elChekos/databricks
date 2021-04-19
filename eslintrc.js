@@ -145,15 +145,7 @@ module.exports = {
     '@typescript-eslint/space-before-function-paren': baseStyleRules['space-before-function-paren'],
 
     // Append 'ts' and 'tsx' to Airbnb 'import/extensions' rule
-    'import/extensions': [
-      baseImportsRules['import/extensions'][0],
-      baseImportsRules['import/extensions'][1],
-      {
-        ...baseImportsRules['import/extensions'][2],
-        ts: 'never',
-        tsx: 'never',
-      },
-    ],
+    'import/extensions': 'off',
 
     // Append 'ts' and 'tsx' extensions to Airbnb 'import/no-extraneous-dependencies' rule
     'import/no-extraneous-dependencies': [

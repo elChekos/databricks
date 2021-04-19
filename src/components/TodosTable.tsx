@@ -27,17 +27,17 @@ interface ITodosTable {
   todos: TTodo[]
 }
 
-const TodosTable: React.FC<ITodosTable> = ({ todos }) => {
-  const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+export const TodosTable: React.FC<ITodosTable> = ({ todos }) => {
+  const [page, setPage] = React.useState(0)
+  const [rowsPerPage, setRowsPerPage] = React.useState(10)
 
-  const handleChangePage = (event: unknown, newPage: number) => {
-    setPage(newPage);
+  const handleChangePage = (_event: unknown, newPage: number) => {
+    setPage(newPage)
   }
 
   const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setRowsPerPage(+event.target.value);
-    setPage(0);
+    setRowsPerPage(+event.target.value)
+    setPage(0)
   }
 
   return (
@@ -58,20 +58,18 @@ const TodosTable: React.FC<ITodosTable> = ({ todos }) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {todos.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((todo) => {
-              return (
-                <TableRow hover role="checkbox" tabIndex={-1} >
-                  {columns.map((column) => {
-                    const value = todo[column.id];
-                    return (
-                      <TableCell key={column.id} align={column.align}>
-                        {value.toString()}
-                      </TableCell>
-                    )
-                  })}
-                </TableRow>
-              );
-            })}
+            {todos.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((todo) => (
+              <TableRow hover role="checkbox" tabIndex={-1} key={todo.id}>
+                {columns.map((column) => {
+                  const value = todo[column.id]
+                  return (
+                    <TableCell key={column.id} align={column.align}>
+                      {value.toString()}
+                    </TableCell>
+                  )
+                })}
+              </TableRow>
+            ))}
           </TableBody>
         </Table>
       </TableContainer>
@@ -87,5 +85,3 @@ const TodosTable: React.FC<ITodosTable> = ({ todos }) => {
     </Paper>
   )
 }
-
-export default TodosTable

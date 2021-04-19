@@ -1,3 +1,5 @@
+import { Response } from 'node-fetch'
+
 export class ResponseHandler {
   /**
     * Handles response data from fetch request and returns either data or throws an error
@@ -8,9 +10,9 @@ export class ResponseHandler {
 
       throw new Error(`[ResponseHandler.handle] Error occured due to: ${error.message as string}`)
     } else if (response.status >= 500) {
-      const { errors } = await response.json()
+      const { error } = await response.json()
 
-      throw new Error(`[ResponseHandler.handle] Error occured due to: ${errors.message as string}`)
+      throw new Error(`[ResponseHandler.handle] Error occured due to: ${error.message as string}`)
     }
 
     const contentType = response.headers.get('content-type')
